@@ -395,57 +395,6 @@ document.addEventListener("keydown",(e)=>{
 
 });
 
-/*==================================================
-        TOUCH SWIPE
-==================================================*/
-
-let startX=0;
-
-document.addEventListener("touchstart",(e)=>{
-
-    startX=e.touches[0].clientX;
-
-});
-
-document.addEventListener("touchend",(e)=>{
-
-    const endX=e.changedTouches[0].clientX;
-
-    const diff=endX-startX;
-
-    if(Math.abs(diff)<60) return;
-
-    if(diff<0){
-
-        if(currentPage<pages.length-1){
-
-            pages[currentPage].classList.remove("active");
-
-            currentPage++;
-
-            pages[currentPage].classList.add("active");
-
-            updateIndicators();
-
-        }
-
-    }else{
-
-        if(currentPage>0){
-
-            pages[currentPage].classList.remove("active");
-
-            currentPage--;
-
-            pages[currentPage].classList.add("active");
-
-            updateIndicators();
-
-        }
-
-    }
-
-});
 
 /*==================================================
         FINAL CELEBRATION
